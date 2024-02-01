@@ -26,11 +26,8 @@ CREATE TABLE `artist` (
   `artist_id` int NOT NULL,
   `first_name` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `last_name` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `role_id` int DEFAULT NULL,
   PRIMARY KEY (`artist_id`),
-  UNIQUE KEY `artist_id_UNIQUE` (`artist_id`),
-  KEY `role_id_idx` (`role_id`),
-  CONSTRAINT `role_id` FOREIGN KEY (`role_id`) REFERENCES `role` (`role_id`)
+  UNIQUE KEY `artist_id_UNIQUE` (`artist_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -40,7 +37,7 @@ CREATE TABLE `artist` (
 
 LOCK TABLES `artist` WRITE;
 /*!40000 ALTER TABLE `artist` DISABLE KEYS */;
-INSERT INTO `artist` VALUES (1,'John','Doe',1),(2,'Jane','Smith',2),(3,'Jane','Johnson',3);
+INSERT INTO `artist` VALUES (1,'John','Doe'),(2,'Jane','Smith'),(3,'Jane','Johnson');
 /*!40000 ALTER TABLE `artist` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-01-25 15:08:41
+-- Dump completed on 2024-02-01 16:12:12

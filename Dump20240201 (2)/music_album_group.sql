@@ -16,32 +16,29 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `album`
+-- Table structure for table `group`
 --
 
-DROP TABLE IF EXISTS `album`;
+DROP TABLE IF EXISTS `group`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `album` (
-  `album_id` int NOT NULL,
-  `album_name` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `release_year` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `genre_id` int NOT NULL,
-  PRIMARY KEY (`album_id`),
-  UNIQUE KEY `album_id_UNIQUE` (`album_id`),
-  KEY `genre_id_idx` (`genre_id`),
-  CONSTRAINT `genre_id` FOREIGN KEY (`genre_id`) REFERENCES `genre` (`genre_id`)
+CREATE TABLE `group` (
+  `group_id` int NOT NULL,
+  `group_name` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`group_id`),
+  UNIQUE KEY `group_id_UNIQUE` (`group_id`),
+  UNIQUE KEY `group_name_UNIQUE` (`group_name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `album`
+-- Dumping data for table `group`
 --
 
-LOCK TABLES `album` WRITE;
-/*!40000 ALTER TABLE `album` DISABLE KEYS */;
-INSERT INTO `album` VALUES (1,'Rocking the World','2021',1),(2,'Jazz Nights','2020',3),(3,'Pop Hits','2019',2);
-/*!40000 ALTER TABLE `album` ENABLE KEYS */;
+LOCK TABLES `group` WRITE;
+/*!40000 ALTER TABLE `group` DISABLE KEYS */;
+INSERT INTO `group` VALUES (2,'The Jazzers'),(3,'The Poppers'),(1,'The Rockers');
+/*!40000 ALTER TABLE `group` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -53,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-01-25 15:08:41
+-- Dump completed on 2024-02-01 16:12:12

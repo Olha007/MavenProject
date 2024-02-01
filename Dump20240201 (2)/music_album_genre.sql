@@ -16,31 +16,29 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `album_artist`
+-- Table structure for table `genre`
 --
 
-DROP TABLE IF EXISTS `album_artist`;
+DROP TABLE IF EXISTS `genre`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `album_artist` (
-  `artist_id` int NOT NULL,
-  `album_id` int NOT NULL,
-  PRIMARY KEY (`artist_id`,`album_id`),
-  KEY `album_id_idx` (`album_id`),
-  KEY `artist_id_idx` (`artist_id`),
-  CONSTRAINT `album_id` FOREIGN KEY (`album_id`) REFERENCES `album` (`album_id`),
-  CONSTRAINT `artist_id` FOREIGN KEY (`artist_id`) REFERENCES `artist` (`artist_id`)
+CREATE TABLE `genre` (
+  `genre_id` int NOT NULL,
+  `genre_name` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`genre_id`),
+  UNIQUE KEY `genre_id_UNIQUE` (`genre_id`),
+  UNIQUE KEY `genre_name_UNIQUE` (`genre_name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `album_artist`
+-- Dumping data for table `genre`
 --
 
-LOCK TABLES `album_artist` WRITE;
-/*!40000 ALTER TABLE `album_artist` DISABLE KEYS */;
-INSERT INTO `album_artist` VALUES (1,1),(2,2),(3,3);
-/*!40000 ALTER TABLE `album_artist` ENABLE KEYS */;
+LOCK TABLES `genre` WRITE;
+/*!40000 ALTER TABLE `genre` DISABLE KEYS */;
+INSERT INTO `genre` VALUES (3,'Jazz'),(2,'Pop'),(1,'Rock');
+/*!40000 ALTER TABLE `genre` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -52,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-01-25 15:08:41
+-- Dump completed on 2024-02-01 16:12:12

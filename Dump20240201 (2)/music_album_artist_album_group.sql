@@ -16,29 +16,34 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `genre`
+-- Table structure for table `artist_album_group`
 --
 
-DROP TABLE IF EXISTS `genre`;
+DROP TABLE IF EXISTS `artist_album_group`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `genre` (
-  `genre_id` int NOT NULL,
-  `genre_name` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  PRIMARY KEY (`genre_id`),
-  UNIQUE KEY `genre_id_UNIQUE` (`genre_id`),
-  UNIQUE KEY `genre_name_UNIQUE` (`genre_name`)
+CREATE TABLE `artist_album_group` (
+  `artist_id` int NOT NULL,
+  `album_id` int NOT NULL,
+  `group_id` int NOT NULL,
+  PRIMARY KEY (`artist_id`,`album_id`),
+  UNIQUE KEY `artist_id_UNIQUE` (`artist_id`),
+  UNIQUE KEY `album_id_UNIQUE` (`album_id`),
+  UNIQUE KEY `group_id_UNIQUE` (`group_id`),
+  CONSTRAINT `album_id` FOREIGN KEY (`album_id`) REFERENCES `album` (`album_id`),
+  CONSTRAINT `artist_id` FOREIGN KEY (`artist_id`) REFERENCES `artist` (`artist_id`),
+  CONSTRAINT `group_id` FOREIGN KEY (`group_id`) REFERENCES `group` (`group_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `genre`
+-- Dumping data for table `artist_album_group`
 --
 
-LOCK TABLES `genre` WRITE;
-/*!40000 ALTER TABLE `genre` DISABLE KEYS */;
-INSERT INTO `genre` VALUES (3,'Jazz'),(2,'Pop'),(1,'Rock');
-/*!40000 ALTER TABLE `genre` ENABLE KEYS */;
+LOCK TABLES `artist_album_group` WRITE;
+/*!40000 ALTER TABLE `artist_album_group` DISABLE KEYS */;
+INSERT INTO `artist_album_group` VALUES (1,1,1),(2,2,2),(3,3,3);
+/*!40000 ALTER TABLE `artist_album_group` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -50,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-01-25 15:08:41
+-- Dump completed on 2024-02-01 16:12:12

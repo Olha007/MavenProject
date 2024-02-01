@@ -17,7 +17,7 @@ public class StatementResultSet {
             System.out.println("The " + connection.getCatalog() + " database is connected");
 
             /* INSERT DATA */
-            String strSQL = "INSERT INTO artist (artist_id, first_name, last_name, role_id) VALUES (4, 'Jane', 'Di', 1)";
+            String strSQL = "INSERT INTO artist (artist_id, first_name, last_name) VALUES (4, 'Jane', 'Di')";
             int rows = statement.executeUpdate(strSQL);
             System.out.println("\n " + rows + " record(s) inserted");
 
@@ -51,8 +51,7 @@ public class StatementResultSet {
             int artistId = resultSet.getInt("artist_id");
             String firstName = resultSet.getString("first_name");
             String lastName = resultSet.getString("last_name");
-            int roleId = resultSet.getInt("role_id");
-            System.out.println("artist_id: " + artistId + ", first_name: " + firstName + ", last_name: " + lastName + ",role_id: " + roleId);
+            System.out.println("artist_id: " + artistId + ", first_name: " + firstName + ", last_name: " + lastName );
         }
     }
 }
